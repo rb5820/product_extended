@@ -1,0 +1,57 @@
+<odoo>
+    <!-- Extend the product template form view with manufacturer details -->
+    <record id="product_template_form_view_manufacturer_inherit" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.manufacturer</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Add manufacturer tab after inventory tab -->
+            <xpath expr="//page[@name='inventory']" position="after">
+                <page string="Manufacturing Details" name="manufacturer_details">
+                    <group>
+                        <group string="Manufacturer Information">
+                            <field name="manufacturer" options="{'no_create': True}"/>
+                            <field name="manufacturer_part_number"/>
+                            <field name="manufacturer_model_number"/>
+                            <field name="country_of_origin" options="{'no_create': True}"/>
+                        </group>
+                        <group string="Supplier Information">
+                            <field name="supplier" options="{'no_create': True}"/>
+                            <field name="supplier_article_number"/>
+                            <field name="supplier_model_number"/>
+                        </group>
+                    </group>
+                    <group string="Physical Specifications">
+                        <group>
+                            <field name="weight"/>
+                            <field name="dimensions" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="length"/>
+                            <field name="width"/>
+                            <field name="height"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add filter for extended product details in product search view -->
+    <record id="product_template_search_view_extended" model="ir.ui.view">
+        <field name="name">product.template.search.view.extended</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <filter name="filter_to_sell" position="after">
+                <filter string="Has Manufacturer" name="has_manufacturer" domain="[('manufacturer', '!=', False)]"/>
+                <filter string="Has Supplier" name="has_supplier" domain="[('supplier', '!=', False)]"/>
+            </filter>
+            <group position="inside">
+                <filter string="Manufacturer" name="groupby_manufacturer" context="{'group_by': 'manufacturer'}"/>
+                <filter string="Supplier" name="groupby_supplier" context="{'group_by': 'supplier'}"/>
+                <filter string="Country of Origin" name="groupby_country" context="{'group_by': 'country_of_origin'}"/>
+            </group>
+        </field>
+    </record>
+</odoo>

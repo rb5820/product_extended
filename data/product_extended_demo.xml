@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- NOTE: Cisco demo data is now in data/companies/cisco/products/C9120AXE-B/product_extended_data.xml -->
+        <!-- The Cisco product and partner records have been moved to the company-specific data file -->
+
+        <!-- Demo category for Time Systems -->
+        <record id="product_category_time_systems" model="product.category">
+            <field name="name">Time Systems</field>
+            <field name="parent_id" ref="product.product_category_all"/>
+            <field name="complete_name">All / Time Systems</field>
+            <field name="sequence">10</field>
+            <field name="description">Products related to time synchronization and network time servers.</field>
+            <field name="company_id" eval="False"/> <!-- Shared category -->
+            <field name="allowed_company_ids" eval="[(6, 0, [])]"/> <!-- Available in all companies -->
+            <field name="disallowed_company_ids" eval="[(6, 0, [])]"/> <!-- No disallowed companies -->
+        </record>
+        
+        <!-- Demo manufacturer (Meinberg) -->
+        <record id="res_partner_meinberg" model="res.partner">
+            <field name="name">Meinberg Funkuhren GmbH &amp; Co. KG</field>
+            <field name="is_company">1</field>
+            <field name="country_id" ref="base.de"/>
+            <field name="website">https://www.meinbergglobal.com</field>
+            <field name="phone">+49 5281 9309 0</field>
+            <field name="email">info@meinberg.de</field>
+            <field name="street">Lange Wand 9</field>
+            <field name="city">Bad Pyrmont</field>
+            <field name="zip">31812</field>
+            <field name="category_id" eval="[(5, 0, 0)]"/> <!-- Clear categories first -->
+        </record>
+        
+        <!-- Demo system integrator (for Meinberg) -->
+        <record id="res_partner_time_systems_integrator" model="res.partner">
+            <field name="name">Time Systems Integrator GmbH</field>
+            <field name="is_company">1</field>
+            <field name="country_id" ref="base.de"/>
+            <field name="website">https://www.timesystems.example.com</field>
+            <field name="phone">+49 30 1234 5678</field>
+            <field name="email">sales@timesystems.example.com</field>
+            <field name="category_id" eval="[(5, 0, 0)]"/> <!-- Clear categories first -->
+        </record>
+        
+        <!-- Meinberg LANTIME M320 GPS Network Time Server -->
+        <record id="product_meinberg_lantime_m320_gps" model="product.template">
+            <field name="name">Meinberg LANTIME M320 GPS Network Time Server</field>
+            <field name="default_code">LANTIME-M320-GPS-AD10-MBG-S-PRO</field>
+            <field name="barcode">4260193391231</field>
+            <field name="type">consu</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="list_price">3450.00</field>
+            <field name="standard_price">2750.00</field>
+            <field name="weight">2.0</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+            <field name="description">
+The Meinberg LANTIME M320 GPS is a high-precision NTP time server with integrated GPS reference for accurate, reliable time synchronization in network environments. It uses GPS satellite signals to derive precise timing information and distributes it via standard network protocols (NTP/SNTP, TIME, DAYTIME) to synchronize all network devices.
+
+TECHNICAL SPECIFICATIONS:
+
+Network Time Server Features:
+- Stratum 1 NTP server (RFC 5905)
+- Network protocols: NTP, SNTP, TIME, DAYTIME, HTTPS, SSH, TELNET, FTP, SFTP, SCP
+- IPv4/IPv6 compatible
+- Redundant network interfaces
+- Management and monitoring via web interface, CLI, or SNMP
+- Syslog support
+- Authentication via TACACS+, RADIUS, LDAP
+- PTP (IEEE 1588) hardware timestamp support
+- PRP (Parallel Redundancy Protocol) support
+
+Time Reference:
+- Integrated GPS receiver (L1, C/A code, 16 channels)
+- Antenna input (BNC connector, 5V DC antenna supply)
+- Oscillator: TCXO (temperature compensated crystal oscillator)
+- Optional OCXO or Rubidium oscillator for high holdover stability
+
+Performance:
+- Accuracy: &lt; ±100 nanoseconds to UTC (GPS locked)
+- Holdover stability: 1-5 μs per day (with OCXO option)
+- NTP requests: &gt; 1000 requests per second
+
+Physical:
+- Form factor: 19" rack mount (1U)
+- Dimensions: 483 × 44 × 285 mm (W × H × D)
+- Weight: 2.0 kg
+- Connectors: 3× RJ45 Ethernet, 1× USB, 1× Serial Console, 1× BNC (GPS antenna)
+
+Power Requirements:
+- AC power: 100-240V AC, 50-60 Hz
+- Power consumption: &lt; 20 W (typical)
+- Optional redundant power supply
+
+Environmental:
+- Operating temperature: 0°C to +50°C
+- Storage temperature: -20°C to +70°C
+- Humidity: 10% to 90% (non-condensing)
+
+Compliance:
+- CE, FCC, RoHS
+- Safety: EN 60950
+- EMC: EN 55022, EN 55024, EN 61000-3-2, EN 61000-3-3
+            </field>
+            
+            <!-- Extended fields -->
+            <field name="manufacturer" ref="res_partner_meinberg"/>
+            <field name="manufacturer_model_number">LANTIME M320 GPS</field>
+            <field name="manufacturer_part_number">LANTIME-M320-GPS-AD10-MBG-S-PRO</field>
+            <field name="country_of_origin" ref="base.de"/>
+            <field name="length">483.0</field> <!-- mm -->
+            <field name="width">285.0</field> <!-- mm -->
+            <field name="height">44.0</field> <!-- mm -->
+            <field name="supplier" ref="res_partner_time_systems_integrator"/>
+            <field name="supplier_article_number">TSI-LANTIME-M320</field>
+            <field name="supplier_model_number">LANTIME-M320-GPS-AD10</field>
+            <!-- <field name="image_1920" type="base64" file="data/companies/meinberg/products/LANTIME-M320-GPS-AD10-MBG-S-PRO/images/LANTIME-M320-GPS-AD10-MBG-S-PRO.jpg"/> -->
+
+            <!-- Multi-Company fields - allow in all companies -->
+            <field name="company_id" eval="False"/> <!-- Shared product -->
+            <field name="allowed_company_ids" eval="[(6, 0, [])]"/>
+            <field name="disallowed_company_ids" eval="[(6, 0, [])]"/>
+        </record>
+    </data>
+</odoo>

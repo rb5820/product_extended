@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Extended product features for multi-company and manufacturer details in Odoo 18">
+    <meta name="keywords" content="Odoo, Product, Multi-company, Manufacturer, Supplier, Dimensions">
+    <meta name="author" content="RB5820 - Attie's Atelier">
+    <title>Product Extended - Odoo 18</title>
+    <style>
+        body {
+            font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .oe_container {
+            width: 100%;
+        }
+        h1, h2, h3 {
+            color: #875A7B;
+        }
+        h1 {
+            margin-top: 40px;
+            font-size: 2.5em;
+        }
+        h2 {
+            margin-top: 30px;
+            font-size: 2em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        h3 {
+            margin-top: 25px;
+            font-size: 1.5em;
+        }
+        .oe_mt32 {
+            margin-top: 32px;
+        }
+        p {
+            margin: 16px 0;
+        }
+        .oe_picture {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+        .oe_screenshot {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .oe_mb32 {
+            margin-bottom: 32px;
+        }
+        .oe_centered {
+            text-align: center;
+        }
+        .oe_row {
+            width: 100%;
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+        .oe_row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .oe_span6 {
+            width: 49%;
+            float: left;
+            margin-right: 2%;
+        }
+        .oe_span6:nth-child(2n) {
+            margin-right: 0;
+        }
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        .alert-info {
+            color: #31708f;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
+        .alert-warning {
+            color: #8a6d3b;
+            background-color: #fcf8e3;
+            border-color: #faebcc;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code {
+            background-color: #f8f8f8;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #e01e5a;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        @media (max-width: 768px) {
+            .oe_span6 {
+                width: 100%;
+                float: none;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="oe_container">
+        <h1 class="oe_centered">Product Extended</h1>
+        <div class="oe_row oe_mb32">
+            <div class="oe_span6">
+                <object data="/product_extended/static/description/icon.html" type="image/svg+xml" style="width:128px; height:128px;">
+                    <img src="/product_extended/static/description/icon.png" alt="Product Extended Logo" class="oe_picture">
+                </object>
+            </div>
+            <div class="oe_span6">
+                <h3>Enhance Your Product Management</h3>
+                <p>Comprehensive tools for managing product details across multiple companies and capturing detailed manufacturer information.</p>
+            </div>
+        <div class="alert alert-info">
+            <p>This module extends the standard Odoo product module with additional features for multi-company environments and manufacturer details.</p>
+        </div>
+        
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Multi-Company Support:</strong> Associate products with multiple companies for better visibility across your organization.</li>
+            <li><strong>Manufacturer Details:</strong> Track comprehensive manufacturer information including part numbers and model numbers.</li>
+            <li><strong>Supplier Information:</strong> Record specific supplier details for each product.</li>
+            <li><strong>Physical Specifications:</strong> Manage product dimensions (length, width, height) and weight.</li>
+            <li><strong>Country of Origin:</strong> Track where products are manufactured for compliance and reporting.</li>
+            <li><strong>Advanced Filtering:</strong> Search and filter products by manufacturer, supplier, or dimensions.</li>
+            <li><strong>Integration:</strong> Seamlessly integrates with existing Odoo product and inventory modules.</li>
+        </ul>
+        <h2>Installation</h2>
+        <p>To install the Product Extended module, follow these steps:</p>
+        <ol>
+            <li>Download the module files from the repository.</li>
+            <li>Copy the module folder to your Odoo addons directory.</li>
+            <li>Update the Odoo app list by going to Apps &gt; Update Apps List.</li>
+            <li>Search for "Product Extended" in the apps list.</li>
+            <li>Click "Install" to install the module.</li>
+        </ol>
+        <h2>Usage</h2>
+        <p>Once installed, you can access the extended product features from the Inventory module. The module allows you to:</p>
+        <ul>
+            <li>Manage manufacturer details for each product.</li>
+            <li>Track physical specifications like dimensions and weight.</li>
+            <li>Associate products with multiple companies in multi-company environments.</li>
+            <li>Search and filter products by manufacturer, supplier, or country of origin.</li>
+            <li>Group products by relevant attributes for better analysis.</li>
+            <li>Manage detailed supplier information for procurement.</li>
+        </ul>
+        
+        <h3>Multi-Company Configuration</h3>
+        <p>To set up multi-company product visibility:</p>
+        <ol>
+            <li>Go to the product form view</li>
+            <li>Find the "Allowed Companies" field below the barcode</li>
+            <li>Add the companies that should have access to this product</li>
+            <li>Optionally, use the "Disallowed Companies" field to explicitly exclude companies</li>
+            <li>Products with no allowed companies assigned are visible to all companies (unless explicitly disallowed)</li>
+            <li>A company cannot be both allowed and disallowed (validation will prevent this)</li>
+        </ol>
+        
+        <h3>Manufacturer Details</h3>
+        <p>To add manufacturer information:</p>
+        <ol>
+            <li>Open the product form</li>
+            <li>Navigate to the "Manufacturing Details" tab</li>
+            <li>Fill in manufacturer, part numbers, and physical specifications</li>
+        </ol>
+        <h2>Technical Details</h2>
+        <h3>Model Extensions</h3>
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Fields Added</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>product.template</td>
+                <td>manufacturer, manufacturer_part_number, manufacturer_model_number</td>
+                <td>Manufacturer information</td>
+            </tr>
+            <tr>
+                <td>product.template</td>
+                <td>supplier, supplier_article_number, supplier_model_number</td>
+                <td>Supplier information</td>
+            </tr>
+            <tr>
+                <td>product.template</td>
+                <td>country_of_origin</td>
+                <td>Manufacturing origin</td>
+            </tr>
+            <tr>
+                <td>product.template</td>
+                <td>length, width, height, dimensions</td>
+                <td>Physical specifications</td>
+            </tr>
+            <tr>
+                <td>product.template</td>
+                <td>allowed_company_ids</td>
+                <td>Multi-company access control</td>
+            </tr>
+        </table>
+
+        <h3>Views Added</h3>
+        <ul>
+            <li>Manufacturing Details tab in product form</li>
+            <li>Multi-company fields in product form</li>
+            <li>Enhanced search filters for manufacturer and supplier</li>
+            <li>Group by options for manufacturer, supplier, and country</li>
+        </ul>
+        
+        <h2>Support</h2>
+        <p>If you encounter any issues or have questions about the Product Extended module, please refer to the documentation provided in the module or contact our support team via the Odoo community forums or our official support channels.</p>
+        <h2>Contributing</h2>
+        <p>We welcome contributions to the Product Extended module. If you would like to contribute, please follow these steps:</p>
+        <ol>
+            <li>Fork the repository on GitHub.</li>
+            <li>Create a new branch for your feature or bug fix.</li>
+            <li>Make your changes and commit them with clear messages.</li>
+            <li>Push your changes to your forked repository.</li>
+            <li>Submit a pull request to the main repository.</li>
+        </ol>
+        <h2>Demo Data</h2>
+        <p>The module includes comprehensive demo products to showcase its capabilities:</p>
+        
+        <h3>Cisco Catalyst 9120AXE Wireless Access Point</h3>
+        <p>A fully detailed enterprise network device with:</p>
+        <ul>
+            <li>Complete manufacturer details (Cisco Systems, Inc.)</li>
+            <li>Supplier details (Network Solutions Provider)</li>
+            <li>Physical specifications (230 × 230 × 54 mm, 1.25 kg)</li>
+            <li>Multi-company settings</li>
+            <li>Technical specifications</li>
+            <li>Comprehensive product information</li>
+        </ul>
+        
+        <h3>Meinberg LANTIME M320 GPS Network Time Server</h3>
+        <p>A precision timing system with:</p>
+        <ul>
+            <li>Complete manufacturer details (Meinberg Funkuhren GmbH &amp; Co. KG)</li>
+            <li>Supplier details (Time Systems Integrator GmbH)</li>
+            <li>Physical specifications (483 × 285 × 44 mm - standard 19" 1U rack mount)</li>
+            <li>Detailed technical specifications and compliance information</li>
+            <li>Global multi-company availability</li>
+        </ul>
+        
+        <p>These demo products serve as excellent templates for configuring your own products using all the extended fields provided by this module.</p>
+        
+        <h2>License</h2>
+        <p>This module is licensed under the GNU Lesser General Public License v3.0 (LGPL-3.0). You can redistribute it and/or modify it under the terms of the LGPL-3.0 as published by the Free Software Foundation.</p>
+        <p>For more details, please refer to the <a href="https://www.gnu.org/licenses/lgpl-3.0.html" target="_blank">GNU Lesser General Public License v3.0</a>.</p>
+        
+        <h2>Screenshots</h2>
+        <div class="oe_row oe_mb32">
+            <h3>Manufacturing Details Tab</h3>
+            <div class="oe_screenshot">
+                <object data="/product_extended/static/description/manufacturer_tab.html" type="image/svg+xml" style="width:100%; height:400px;">
+                    <img src="/product_extended/static/description/manufacturer_tab.png" alt="Manufacturing Details Tab">
+                </object>
+            </div>
+            <h3>Multi-company Support</h3>
+            <div class="oe_screenshot">
+                <object data="/product_extended/static/description/multi_company.html" type="image/svg+xml" style="width:100%; height:400px;">
+                    <img src="/product_extended/static/description/multi_company.png" alt="Multi-company Support">
+                </object>
+            </div>
+        </div>
+        
+        <h2>Version History</h2>
+        <table>
+            <tr>
+                <th>Version</th>
+                <th>Date</th>
+                <th>Changes</th>
+            </tr>
+            <tr>
+                <td>18.0.1.3.0</td>
+                <td>June 30, 2025</td>
+                <td>Added Meinberg LANTIME M320 GPS demo product</td>
+            </tr>
+            <tr>
+                <td>18.0.1.2.0</td>
+                <td>June 30, 2025</td>
+                <td>Added demo product (Cisco Catalyst 9120AXE)</td>
+            </tr>
+            <tr>
+                <td>18.0.1.1.0</td>
+                <td>June 30, 2025</td>
+                <td>Added disallowed companies feature</td>
+            </tr>
+            <tr>
+                <td>18.0.1.0.0</td>
+                <td>June 30, 2023</td>
+                <td>Initial release for Odoo 18</td>
+            </tr>
+        </table>
+        
+        <h2>Contact</h2>
+        <p>If you have any questions or feedback, please contact us at <a href="https://www.attiesatelier.be" target="_blank">Attie's Atelier</a>.</p>
+        
+        <h2>Disclaimer</h2>
+        <p>This module is provided "as is" without any warranty of any kind. Use it at your own risk.</p>   
+
+    </div>
+</body>
+</html>
