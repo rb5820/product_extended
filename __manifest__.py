@@ -42,7 +42,7 @@ Key Features:
         'security/ir.model.access.csv',
         'views/product_template_views.xml',
         'views/product_template_multi_company_views.xml',
-        'data/product_extended_data.xml',
+        #'data/product_extended_data.xml',
     ],
     'demo': [
         'data/product_extended_demo.xml',
