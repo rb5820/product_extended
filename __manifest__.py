@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Product Extended',
-    'version': '18.0.1.3.0',
+    'version': '18.0.1.3.1',
     'category': 'Inventory/Inventory',
     'summary': 'Extended product features for multi-company and manufacturer details',
     'author': 'RB5820',
@@ -42,7 +42,7 @@ Key Features:
         'security/ir.model.access.csv',
         'views/product_template_views.xml',
         'views/product_template_multi_company_views.xml',
-        #'data/companies/cisco/products/C9120AXE-B/product_extended_data.xml',
+        'data/product_extended_data.xml',
     ],
     'demo': [
         'data/product_extended_demo.xml',

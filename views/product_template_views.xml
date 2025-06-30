@@ -7,16 +7,16 @@
         <field name="arch" type="xml">
             <!-- Add manufacturer tab after inventory tab -->
             <xpath expr="//page[@name='inventory']" position="after">
-                <page string="Manufacturing Details" name="manufacturer_details">
+                <page string="Manufacturer Details" name="manufacturer_details">
                     <group>
                         <group string="Manufacturer Information">
-                            <field name="manufacturer" options="{'no_create': True}"/>
+                            <field name="manufacturer" options="{'no_create': False}"/>
                             <field name="manufacturer_part_number"/>
                             <field name="manufacturer_model_number"/>
                             <field name="country_of_origin" options="{'no_create': True}"/>
                         </group>
                         <group string="Supplier Information">
-                            <field name="supplier" options="{'no_create': True}"/>
+                            <field name="supplier" options="{'no_create': False}"/>
                             <field name="supplier_article_number"/>
                             <field name="supplier_model_number"/>
                         </group>

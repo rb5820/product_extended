@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data>
         <!-- NOTE: Cisco demo data is now in data/companies/cisco/products/C9120AXE-B/product_extended_data.xml -->
         <!-- The Cisco product and partner records have been moved to the company-specific data file -->
 
