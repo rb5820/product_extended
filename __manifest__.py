@@ -45,7 +45,7 @@ Key Features:
         #'data/product_extended_data.xml',
     ],
     'demo': [
-        'data/product_extended_demo.xml',
+        # 'data/product_extended_demo.xml',
     ],
     'installable': True,
     'application': False,
